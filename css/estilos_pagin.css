@@ -521,7 +521,7 @@ body {
     }
 
     .img-gallery{
-        padding: 15px 50px;
+        padding: 15px 20px;
         display: grid;
         grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
         gap: 20px;
