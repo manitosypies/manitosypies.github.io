@@ -465,6 +465,12 @@ body {
         height: 200px;
     }
 
+    .img-gallery{
+        padding: 15px 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        gap: 30px;
+    }
 
     .footer_container{
         flex-wrap: wrap;
@@ -512,6 +518,13 @@ body {
 
     .testimony_course{
         margin-top: 15px;
+    }
+
+    .img-gallery{
+        padding: 15px 50px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+        gap: 30px;
     }
 
     .footer_title{
