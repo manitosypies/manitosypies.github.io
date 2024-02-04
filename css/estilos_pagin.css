@@ -523,8 +523,8 @@ body {
     .img-gallery{
         padding: 15px 20px;
         display: grid;
-        grid-template-columns: repeat(auto-fit,minmax(90px,1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+        gap: 10px;
     }
 
     .footer_title{
