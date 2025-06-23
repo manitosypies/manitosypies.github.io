@@ -1,0 +1,393 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+/* Estructura básica */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffffff, #e09bf4);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 3rem;
+    background: linear-gradient(to right, #231942, #bdb2ff);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: top 0.3s ease-in-out; /* Agregar transición */
+}
+
+.navbar.scrolled {
+    background-color: #4a148c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo img {
+    width: 90px; /* Tamaño del logo */
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar .logo span {
+    font-size: 1.8rem; /* Tamaño del nombre */
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: font-size 0.3s ease-in-out;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+    list-style: none;
+    display: flex;          /* Asegura que los enlaces estén en una fila horizontal */
+    gap: 20px;              /* Espaciado entre los enlaces */
+    margin: 0;              /* Elimina cualquier margen */
+    padding: 0;             /* Elimina el padding por defecto */
+}
+
+/* Estilos para los enlaces */
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    position: relative; /* Necesario para el pseudo-elemento */
+    padding: 8px 12px; /* Añadimos algo de espacio para el borde */
+    transition: color 0.3s ease, border 0.3s ease; /* Transición suave para color y borde */
+    border: 2px solid transparent; /* Borde inicial invisible */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+
+/* Efecto hover en los enlaces */
+.nav-links li a:hover {
+    color: #b2ebf2; /* Cambia el color al pasar el cursor */
+    border-color: #b2ebf2; /* Añadimos el borde de color cuando el cursor pasa */
+}
+
+/* Sección de detalle del servicio */
+.service-detail-header {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-bottom-left-radius: 50% 15%;
+    border-bottom-right-radius: 50% 15%;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease; /* Transición suave para la sombra */
+}
+
+.service-detail-header .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.service-title {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    color: white;
+}
+
+.service-title h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.service-title p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Detalles del servicio */
+.service-info {
+    padding: 3rem 2rem;
+    background: linear-gradient(to right, #ffffff, #e09bf4);
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service-description {
+    flex: 1;
+    text-align: left;
+    text-align: justify
+}
+
+.service-description h2 {
+    font-size: 2.5rem;
+    color: #6a1b9a;
+}
+
+.service-description p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 20px;
+}
+
+.service-description h3 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #6a1b9a;
+}
+
+.service-description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.service-description ul li {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+.service-image{
+    cursor: pointer;
+}
+
+/* Lightbox básico */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Estilo de la imagen ampliada */
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+}
+
+/* Estilo del botón de cierre */
+.lightbox .close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+}
+
+/* Estilo para el botón de cierre al pasar el mouse */
+.lightbox .close:hover {
+    cursor: pointer;
+    color: #f1f1f1;
+}
+
+
+
+/* Botón de reserva */
+.service-action {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-reserve {
+    background: linear-gradient(to right, #ac006d, #4a148c);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reserve:hover {
+    background-color: #5e2a8b;
+}
+
+/* Testimonios */
+.testimonials {
+    background: linear-gradient(to right, #ffffff, #e09bf4);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    color: #6a1b9a;
+}
+
+.testimonial {
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #6a1b9a;
+}
+/* Estilo para el contenedor del bloque "Reservar ahora" */
+.testimonials-right .service-action {
+    padding: 20px;                         /* Espaciado alrededor del contenido */
+    background: linear-gradient(to right, #f9f7f5, #f5d5ff);         /* Fondo de color atractivo (puedes modificarlo) */
+    border-radius: 8px;                     /* Bordes redondeados */
+    text-align: center;                     /* Centrar el texto */
+    transition: all 0.3s ease;              /* Transición suave para todos los efectos */
+    cursor: pointer;                       /* Cambiar el cursor a mano al pasar sobre el div */
+}
+
+
+/* Efecto cuando el cursor pasa por encima del contenedor */
+.testimonials-right .service-action:hover {
+    background-color: #ff7f00;              /* Fondo más oscuro cuando se pasa el cursor */
+    transform: scale(1.05);                  /* Aumenta el tamaño del contenedor */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Estilo para el botón dentro del contenedor */
+.testimonials-right .service-action .btn-reserve {
+    background-color: #fff;               /* Fondo blanco para el botón */
+    color: #fff;                        /* Texto en el color original */
+    border: 2px solid #6a1b9a;             /* Borde que coincide con el color de fondo */
+    padding: 12px 24px;                    /* Tamaño del botón */
+    font-size: 16px;                       /* Tamaño de la fuente */
+    border-radius: 5px;                    /* Bordes redondeados */
+    cursor: pointer;                       /* Cursor tipo mano */
+    transition: all 0.3s ease;              /* Transición suave */
+}
+
+/* Efecto de hover para el botón dentro del contenedor */
+.testimonials-right .service-action .btn-reserve:hover {
+    background-color: rgb(0, 195, 255);             /* Fondo que cambia al color original */
+    color: #fff;                           /* Texto en blanco */
+    border: 4px solid rgb(0, 195, 255);             /* Borde más oscuro */
+    transform: scale(1.05);                 /* Aumenta el tamaño del botón */
+}
+
+/* Footer */
+footer {
+    background-color: #6a1b9a;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Animación de Carga */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    animation: fadeOut 1s forwards; /* Animación de desvanecimiento */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Botón Hamburguesa moderno */
+.hamburger {
+    width: 30px;
+    height: 22px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .hamburger span {
+    height: 4px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Animación hamburguesa activa */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+  }
+  
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+  }
+  
+  /* Estilos responsive del menú */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background: #111;
+      flex-direction: column;
+      align-items: center;
+      display: none;
+      transition: all 0.3s ease;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 15px 0;
+    }
+  
+    .dropdown-menu {
+      position: static;
+      background: #222;
+      box-shadow: none;
+    }
+  }
+  
