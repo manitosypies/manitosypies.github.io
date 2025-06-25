@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agenda Manicure</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+        <img src="../img/logo.png" alt="Logo Eternal Beauty">
+        <span>Manitos & Pies</span>
+    </div>
+    <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="../index.php">Inicio</a></li>
+        <li><a href="../index.php#services">Servicios</a></li>
+            <li><a href="../index.php#promocion">Promociones</a></li>
+            <li><a href="../ibdex.php#acordeon">Preguntas</a></li>
+            <li><a href="../index.php#galeria">Galería</a></li>
+        <!-- Dropdown -->
+    <li class="dropdown">
+        <a href="#">Más &#9662;</a> <!-- ▼ flechita -->
+        <ul class="dropdown-menu">
+            <li><a href="index.html">Agenda tu hora</a></li>
+            <li><a href="../serviceone.php">Servicio 1</a></li>
+            <li><a href="../servicetwo.php">Servicio 2</a></li>
+            <li><a href="../servicethree.php">Servicio 3</a></li>
+        </ul>
+    </li>
+        <li><a href="../index.php#footer">Contacto</a></li>
+    </ul>
+</nav>
+
+  <h1>Agenda tu hora</h1>
+  <div id="calendar"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      const calendarEl = document.getElementById('calendar');
+  
+      // Cargar días ocupados desde el servidor
+      const response = await fetch('dias_ocupados.php');
+      const diasOcupados = await response.json(); // ['2025-06-24', ...]
+  
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'es',
+        dateClick: function(info) {
+          const fecha = info.dateStr;
+          window.location.href = `reservar.php?fecha=${fecha}`;
+        },
+        dayCellDidMount: function(info) {
+          const today = new Date();
+          const cellDate = new Date(info.date);
+          const cellDateStr = info.date.toISOString().split('T')[0]; // yyyy-mm-dd
+  
+          today.setHours(0, 0, 0, 0);
+          cellDate.setHours(0, 0, 0, 0);
+  
+          // Días pasados en rojo
+          if (cellDate < today) {
+            info.el.style.backgroundColor = '#ffe5e5';
+            info.el.style.color = '#c62828';
+  
+            // Ícono para pasado
+            const icon = document.createElement('span');
+            icon.innerHTML = '⏳';
+            icon.style.marginLeft = '4px';
+            info.el.querySelector('.fc-daygrid-day-number')?.appendChild(icon);
+          }
+  
+          // Días sin disponibilidad en amarillo con ícono
+          if (diasOcupados.includes(cellDateStr)) {
+            info.el.style.backgroundColor = '#fff3cd'; // amarillo claro
+            info.el.style.color = '#856404'; // texto ámbar oscuro
+  
+            const icon = document.createElement('span');
+            icon.innerHTML = '🚫';
+            icon.style.marginLeft = '4px';
+            info.el.querySelector('.fc-daygrid-day-number')?.appendChild(icon);
+          }
+        }
+      });
+  
+      calendar.render();
+    });
+  </script>
+  <script>
+    // Esperar a que la página cargue completamente
+window.addEventListener('load', () => {
+    document.body.classList.add('page-load');
+});
+
+// Variables
+let prevScrollPos = window.pageYOffset;  // Posición inicial del scroll
+let navbar = document.querySelector('.navbar');
+let scrollTimer;
+
+// Función para manejar el desplazamiento
+window.addEventListener('scroll', function() {
+    let currentScrollPos = window.pageYOffset;
+
+    // Si el usuario baja más de 100px, ocultamos el navbar
+    if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
+        navbar.style.top = "-80px"; // Oculta el navbar
+    } else {
+        navbar.style.top = "0"; // Muestra el navbar
+    }
+
+    prevScrollPos = currentScrollPos;
+
+    // Si no hay desplazamiento durante un tiempo, mostrará el navbar
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+        navbar.style.top = "0"; // Después de cierto tiempo sin desplazarse, muestra el navbar
+    }, 2000); // 2 segundos de espera sin movimiento
+});
+  </script>
+  
+  
+</body>
+</html>

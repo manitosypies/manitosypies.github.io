@@ -27,6 +27,15 @@
 
 <ul class="nav-links" id="nav-links">
     <li><a href="index.php">Inicio</a></li>
+    <!-- Dropdown -->
+    <li class="dropdown">
+        <a href="#">Más &#9662;</a> <!-- ▼ flechita -->
+        <ul class="dropdown-menu">
+            <li><a href="./agenda/index.html">Agenda tu hora</a></li>
+            <li><a href="serviceone.php">Servicio 1</a></li>
+            <li><a href="servicetwo.php">Servicio 2</a></li>
+        </ul>
+    </li>
     <li><a href="#footer">Contacto</a></li>
 </ul>
 
@@ -76,7 +85,7 @@
             <div class="service-action">
                 <h3>Reserva tu cita</h3>
                 <p>¡No esperes más! Reserva ahora tu cita para lucir espectacular.</p>
-                <button class="btn-reserve">Reservar ahora</button>
+                <button class="btn-reserve" onclick="window.location.href='./agenda/index.html'">Reservar ahora</button>
             </div>
         </div>
         <!-- Contenedor para los testimonios -->
@@ -122,6 +131,21 @@
     </div>
 </footer>
 <script>
+    const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.getElementById("close");
+
+document.querySelector(".img-click").addEventListener("click", function () {
+    lightboxImg.src = this.src;
+    lightbox.style.display = "flex";
+});
+
+closeBtn.addEventListener("click", function () {
+    lightbox.style.display = "none";
+});
+
+</script>
+<script>
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
 
@@ -142,6 +166,37 @@ document.querySelectorAll("#nav-links > li > a").forEach(link => {
     });
 });
 </script>
+<script>
+    // Esperar a que la página cargue completamente
+window.addEventListener('load', () => {
+    document.body.classList.add('page-load');
+});
+
+// Variables
+let prevScrollPos = window.pageYOffset;  // Posición inicial del scroll
+let navbar = document.querySelector('.navbar');
+let scrollTimer;
+
+// Función para manejar el desplazamiento
+window.addEventListener('scroll', function() {
+    let currentScrollPos = window.pageYOffset;
+
+    // Si el usuario baja más de 100px, ocultamos el navbar
+    if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
+        navbar.style.top = "-80px"; // Oculta el navbar
+    } else {
+        navbar.style.top = "0"; // Muestra el navbar
+    }
+
+    prevScrollPos = currentScrollPos;
+
+    // Si no hay desplazamiento durante un tiempo, mostrará el navbar
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+        navbar.style.top = "0"; // Después de cierto tiempo sin desplazarse, muestra el navbar
+    }, 2000); // 2 segundos de espera sin movimiento
+});
+  </script>
     <!-- Botón Volver Arriba -->
     <button id="scrollToTopBtn" title="Volver arriba">&#8679;</button>
     <script src="js/script.js"></script>

@@ -54,12 +54,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0rem 3rem;
-    background: linear-gradient(to right, #231942, #bdb2ff);
+    background: linear-gradient(to right, #e8aff7, #d579ef);
     color: white;
     position: sticky;
     top: 0;
     z-index: 100;
     transition: top 0.3s ease-in-out; /* Agregar transición */
+    border-bottom: 3px solid black; /* 🔥 Línea negra de separación */
+    
 }
 
 .navbar.scrolled {
@@ -477,11 +479,12 @@ body {
 
 /* FOOTER */
 footer {
-    background: linear-gradient(to right, #231942, #bdb2ff);
+    background: linear-gradient(to right, #e09bf4, #e09bf4);
     color: white;
     text-align: center;
     padding: 2rem 0;
     font-family: 'Arial', sans-serif;
+    border-top: 3px solid black; /* 🔥 Línea negra de separación */
 }
 
 .footer-content {

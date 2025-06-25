@@ -1,0 +1,109 @@
+body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffffff, #e09bf4);
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .reserva-container {
+      max-width: 500px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      color: #c2185b;
+      margin-bottom: 25px;
+    }
+
+    .formulario-reserva label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .formulario-reserva input[type="text"],
+    .formulario-reserva input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    .bloque-horas {
+      margin: 20px 0;
+    }
+
+    .hora-opcion {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      transition: all 0.3s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .hora-opcion input[type="radio"] {
+      transform: scale(1.2);
+    }
+
+    .hora-opcion:hover:not(.ocupada) {
+      background-color: #ffe3ed;
+    }
+
+    .hora-opcion.ocupada {
+      background-color: #f8d7da;
+      color: #721c24;
+      text-decoration: line-through;
+      cursor: not-allowed;
+    }
+
+    .hora-opcion.ocupada:hover {
+      background-color: #f8d7da;
+    }
+
+    .formulario-reserva button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      background-color: #c2185b;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .formulario-reserva button:hover {
+      background-color: #ad1457;
+    }
+
+    .mensaje-bloqueo {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }

@@ -30,9 +30,10 @@
         <li class="dropdown">
             <a href="#">Más &#9662;</a> <!-- ▼ flechita -->
             <ul class="dropdown-menu">
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Testimonios</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="./agenda/index.html">Agenda tu hora</a></li>
+                <li><a href="serviceone.php">Servicio 1</a></li>
+                <li><a href="servicetwo.php">Servicio 2</a></li>
+                <li><a href="servicethree.php">Servicio 3</a></li>
             </ul>
         </li>
             <li><a href="#footer">Contacto</a></li>

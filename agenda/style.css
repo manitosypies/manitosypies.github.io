@@ -1,0 +1,213 @@
+/* Estilo general */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #ffffff, #e09bf4);
+    color: #333;
+  }
+  /* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
+  background: linear-gradient(to right, #e8aff7, #d579ef);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: top 0.3s ease-in-out; /* Agregar transición */
+  border-bottom: 3px solid black; /* 🔥 Línea negra de separación */
+}
+
+.navbar.scrolled {
+  background-color: #4a148c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .logo img {
+  width: 90px; /* Tamaño del logo */
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar .logo span {
+  font-size: 1.8rem; /* Tamaño del nombre */
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 2px;
+  transition: font-size 0.3s ease-in-out;
+}
+
+/* Enlaces de navegación */
+.nav-links {
+  list-style: none;
+  display: flex;          /* Asegura que los enlaces estén en una fila horizontal */
+  gap: 20px;              /* Espaciado entre los enlaces */
+  margin: 0;              /* Elimina cualquier margen */
+  padding: 0;             /* Elimina el padding por defecto */
+}
+
+/* Estilos para los enlaces */
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  position: relative; /* Necesario para el pseudo-elemento */
+  padding: 8px 12px; /* Añadimos algo de espacio para el borde */
+  transition: color 0.3s ease, border 0.3s ease; /* Transición suave para color y borde */
+  border: 2px solid transparent; /* Borde inicial invisible */
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+
+/* Efecto hover en los enlaces */
+.nav-links li a:hover {
+  color: #b2ebf2; /* Cambia el color al pasar el cursor */
+  border-color: #b2ebf2; /* Añadimos el borde de color cuando el cursor pasa */
+}
+
+/* dropdown */
+
+.navbar ul li.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  position: absolute;
+  top: 130%;
+  left: 0;
+  min-width: 190px;
+  background-color: #bdb2ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 999;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  list-style: none;
+}
+
+.navbar ul li.dropdown:hover .dropdown-menu {
+  display: block; /* por compatibilidad con tu estructura */
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+
+.dropdown-menu li a {
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+  
+  h1, h2 {
+    text-align: center;
+    color: #6a1b9a;
+  }
+  
+  #calendar {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  /* Formulario */
+  form {
+    max-width: 600px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color: #444;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="radio"] {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  form input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  form button {
+    margin-top: 20px;
+    background-color: #c2185b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #ad1457;
+  }
+  
+  /* Horarios */
+  label[style] {
+    display: flex;
+    align-items: center;
+    background-color: #fce4ec;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  label[style]:hover {
+    background-color: #f8bbd0;
+  }
+  
+  input[disabled] + span,
+  label input[disabled] {
+    color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  p {
+    text-align: center;
+    font-size: 16px;
+  }
+  
